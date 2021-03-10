@@ -13,22 +13,33 @@ function clearTrafficLight() {
    }
 }
 
+ 
+function outErrorMessage() {
+    alert("Error");
+}
+
 btn.onclick = function() {
     clearTrafficLight();
-    if (flag === 0) {
+    switch(flag)
+    {
+    case 0:
         box[0].classList.add('one');
         flag = 1;
-    } else if (flag === 1) {
-        clearTrafficLight();
+        break;
+    case 1:
         box[1].classList.add('two');
         flag = 2;
-    } else if (flag === 2) {
-        clearTrafficLight();
-        box[2].classList.add('three');
-        flag = 3;
-    } else {
+        break;
+    case 3:
         box[1].classList.add('two');
         flag = 0;
+        break;
+    case 2:
+        box[2].classList.add('three');
+        flag = 3;
+        break;
+    default:
+        outErrorMessage();
     }
 }
 
